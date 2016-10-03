@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer-stylus');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './frontend/index.js',
   output: {
     path: path.join(__dirname, 'public/build'),
     filename: 'build.js'
