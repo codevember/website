@@ -1,9 +1,13 @@
-#system
+# system
 *.log
 .DS_Store
 
-#node
+# node
 node_modules
+
+# config
+config/database.js
+config/codevember-firebase.json
 
 # build
 public/build/*.js
