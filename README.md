@@ -8,4 +8,4 @@ Install dependencies and run
 
 `npm start`
 
-This will build the js and css files and start the server. The website will be available at [localhost:5000](localhost:5000)
+This will build the js and css files and start a dev server at [localhost:8080](localhost:8080)
