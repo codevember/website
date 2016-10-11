@@ -4,6 +4,7 @@ Vue.use(VueRouter);
 
 import Home from './views/home/Home';
 import About from './views/about/About';
+
 module.exports = new VueRouter({
   mode: 'history',
   routes: [
