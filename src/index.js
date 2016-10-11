@@ -1,8 +1,9 @@
 import './style/index.styl';
 import Vue from 'vue';
 import router from './router';
-/*import Firebase from 'firebase';
+import Api from './Api';
+import configDB from '../config/database';
 
-let firebase = new Firebase('https://codevember-af1d8.firebaseio.com/')*/
+Api.init(configDB.apiKey, configDB.authDomain, configDB.databaseName);
 
 new Vue({router}).$mount('#app');

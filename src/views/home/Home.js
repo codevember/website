@@ -1,37 +1,24 @@
-import List from '../../components/list/List.js'
-import Proj from '../../components/project/Project.js'
-import firebase from 'firebase'
-var config = {
-  apiKey: "AIzaSyBsMjMcz4qhy8GtWeHQAq1S2oiO2HXYGb8",
-  authDomain: "codevembertest.firebaseapp.com",
-  databaseURL: "https://codevembertest.firebaseio.com",
-  storageBucket: "codevembertest.appspot.com",
-  messagingSenderId: "668336650459"
-};
-firebase.initializeApp(config)
+import List from 'components/list/List.js';
+import Proj from 'components/project/Project.js';
+import Api from 'Api';
 
 export default {
   name: 'Home',
   template: require('./home.html'),
   components: {
-    'List' : List,
-    'Project' : Proj
+    'List': List,
+    'Project': Proj
   },
   data () {
     return {
-      name: 'World'
+      contribs: []
     };
   },
-  mounted() {
-    console.log('Hello from home');
-    let database = firebase.database().ref().child('projects');
-    database.on('value',function( snap ){
-      console.log(snap.val())
+  created() {
+    Api.getAllContributions((contribs) => { // TODO: Get contribs for given day
+      this.contribs = contribs;
     });
-
   },
-  ready(){
-
- },
+  mounted() {},
   methods: {}
 };

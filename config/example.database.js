@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  serviceAccount: path.join(__dirname, '/serviceAccount.json'),
+  apiKey: 'your-api-key',
+  authDomain: 'your-app.firebaseapp.com',
   databaseName: 'your-database'
 };

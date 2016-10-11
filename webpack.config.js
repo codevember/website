@@ -9,7 +9,13 @@ module.exports = {
     filename: 'build.js'
   },
   resolve: {
-    alias: {vue: 'vue/dist/vue.js'}
+    alias: {
+      vue: 'vue/dist/vue.js',
+      components: path.join(__dirname, 'src/components'),
+      layouts: path.join(__dirname, 'src/layouts'),
+      views: path.join(__dirname, 'src/views'),
+      Api: path.join(__dirname, 'src/Api.js')
+    }
   },
   module: {
     loaders: [
