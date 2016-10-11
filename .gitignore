@@ -8,6 +8,7 @@ node_modules
 # config
 config/database.js
 config/codevember-firebase.json
+config/codeTest.json
 
 # build
 public/build/*.js
