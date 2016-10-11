@@ -1,11 +1,9 @@
 export default {
   name: 'Project',
   template: require('./project.html'),
-  props: ['projectTitle','projectUser','projectImg'],
+  props: ['url', 'title', 'author', 'image'],
   data () {
-    return {
-      name: 'Project'
-    };
+    return {};
   },
   mounted() {
     console.log('Hello from project');
