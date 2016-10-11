@@ -15,7 +15,7 @@ export default {
     };
   },
   created() {
-    Api.getAllContributions((contribs) => { // TODO: Get contribs for given day
+    Api.getAllContributions().then((contribs) => { // TODO: Get contribs for given day
       this.contribs = contribs;
     });
   },
