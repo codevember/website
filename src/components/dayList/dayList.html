@@ -1,3 +1,10 @@
-<ul class="dayList">
-  <li>{{ day }}</li>
-</ul>
+<div class="dayList">
+  <ul class="ulDayList">
+    <li v-for="value in liCounter " >
+      <p>
+        Day # {{ liCounter - value + 1 }}
+      </p>
+    </li>
+  </ul>
+
+</div>

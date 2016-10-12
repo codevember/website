@@ -1,4 +1,5 @@
-//import DayListManager from 'DayListManager';
+import DayListManager from 'DayListManager';
+
 
 export default {
   name: 'DayList',
@@ -6,11 +7,13 @@ export default {
   props: ['day'],
   data () {
     return {
-      name: 'DayList'
+      name: 'DayList',
+      liCounter : DayListManager.init(),
+      currentDay : DayListManager.init(),
+      activeDay : DayListManager.init()
     };
   },
   mounted() {
-    //DayListManager.init();
     console.log('Hello from list');
   },
   methods: {}

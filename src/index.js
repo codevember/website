@@ -1,10 +1,14 @@
+require('es6-promise').polyfill();
 import './style/index.styl';
 import Vue from 'vue';
 import router from './router';
 import Api from './Api';
-import DayListManager from './DayListManager'
 import configDB from '../config/database';
 
-Api.init(configDB.apiKey, configDB.authDomain, configDB.databaseName);
+function onApiInit() {
+  const app = new Vue({router});
+  app.$mount('#app');
+}
 
-new Vue({router}).$mount('#app');
+Api.init(configDB.apiKey, configDB.authDomain, configDB.databaseName)
+  .then(onApiInit);

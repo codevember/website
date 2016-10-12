@@ -8,16 +8,30 @@ class Api {
     this.authDomain = authDomain;
     this.url = 'https://' + dbName + '.firebaseio.com/';
     this.dbName = dbName;
-    this.initFirebase();
-    this.db = firebase.database();
-    this.contribs = this.db.ref('contributions');
+    this.user = undefined;
+    return this.initFirebase();
   }
 
   initFirebase() {
-    firebase.initializeApp({
-      apiKey: this.apiKey,
-      authDomain: this.authDomain,
-      databaseURL: this.url
+    return new Promise((resolve, reject) => {
+      firebase.initializeApp({
+        apiKey: this.apiKey,
+        authDomain: this.authDomain,
+        databaseURL: this.url
+      });
+
+      this.db = firebase.database();
+      this.contribs = this.db.ref('contributions');
+
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = user;
+        } else {
+          this.user = undefined;
+        }
+
+        resolve();
+      });
     });
   }
 
@@ -26,24 +40,44 @@ class Api {
     newContrib.set(value);
   }
 
-  getAllContributions(callback) {
-    this.contribs.once('value').then((snapshot) => {
-      let contribs = [];
-      snapshot.forEach((data) => {
-        contribs.push(data.val());
+  getAllContributions() {
+    return new Promise((resolve, reject) => {
+      this.contribs.once('value').then((snapshot) => {
+        let contribs = [];
+        snapshot.forEach((data) => {
+          contribs.push(data.val());
+        });
+        resolve(contribs);
       });
-      callback(contribs);
     });
   }
 
-  getContributionsOfDay(day, callback) {
-    this.contribs.orderByChild('date').equalTo(day).once('value').then((snapshot) => {
-      let contribs = [];
-      snapshot.forEach((data) => {
-        contribs.push(data.val());
+  getContributionsOfDay(day) {
+    return new Promise((resolve, reject) => {
+      this.contribs.orderByChild('date').equalTo(day).once('value').then((snapshot) => {
+        let contribs = [];
+        snapshot.forEach((data) => {
+          contribs.push(data.val());
+        });
+        resolve(contribs);
       });
-      callback(contribs);
     });
+  }
+
+  getCurrentUser() {
+    if (this.user) {
+      return this.user;
+    }
+
+    return firebase.auth().currentUser;
+  }
+
+  signin(email, password) {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
+
+  signout() {
+    return firebase.auth().signOut();
   }
 }
 

@@ -14,7 +14,8 @@ module.exports = {
       components: path.join(__dirname, 'src/components'),
       layouts: path.join(__dirname, 'src/layouts'),
       views: path.join(__dirname, 'src/views'),
-      Api: path.join(__dirname, 'src/Api.js')
+      Api: path.join(__dirname, 'src/Api.js'),
+      DayListManager : path.join(__dirname, 'src/DayListManager.js')
     }
   },
   module: {

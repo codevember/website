@@ -1,0 +1,14 @@
+<div class="Login">
+  <div class="Login-form" v-if="!isLogged">
+    <input type="email" name="email" v-model="email" v-on:focus="clearError">
+    <input type="password" name="password" v-model="password" v-on:focus="clearError">
+    <button type="button" v-on:click="onSubmit">Login</button>
+    <p>
+      {{ error }}
+    </p>
+  </div>
+  <div class="Login-logged" v-else>
+    Your are already logged in.
+    <button type="button" v-on:click="signout">Sign out</button>
+  </div>
+</div>
