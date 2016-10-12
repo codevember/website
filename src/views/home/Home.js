@@ -1,4 +1,4 @@
-import List from 'components/list/List.js';
+import DayList from 'components/dayList/DayList.js';
 import Proj from 'components/project/Project.js';
 import Api from 'Api';
 
@@ -6,7 +6,7 @@ export default {
   name: 'Home',
   template: require('./home.html'),
   components: {
-    'List': List,
+    'DayList': DayList,
     'Project': Proj
   },
   data () {
