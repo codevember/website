@@ -11,13 +11,8 @@ export default {
   },
   data () {
     return {
-      contribs: []
+    
     };
-  },
-  created() {
-    Api.getAllContributions().then((contribs) => { // TODO: Get contribs for given day
-      this.contribs = contribs;
-    });
   },
   mounted() {},
   methods: {}

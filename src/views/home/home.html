@@ -2,6 +2,8 @@
 <div class="myHome">
   <DayList day="This Props works"></DayList>
   <div class="projectContainer">
-    <Project :url="contrib.url" :title="contrib.title" :author="contrib.author" :image="contrib.image" v-for="contrib in contribs"></Project>
+    <p>Current route name from home: {{ $route.name }}    .</p>
+    <p>Current Id from home: {{ $route.params.id }}</p>
+     <router-view class="view" name="projView"></router-view>
   </div>
 </div>

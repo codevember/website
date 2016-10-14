@@ -1,10 +1,7 @@
 <div class="dayList">
   <ul class="ulDayList">
     <li v-for="value in liCounter " >
-      <p>
-        Day # {{ liCounter - value + 1 }}
-      </p>
+      <router-link :to="{ name: 'day', params: { id:  liCounter - value + 1 }}">Day # {{ liCounter - value + 1 }}</router-link>
     </li>
   </ul>
-
 </div>
