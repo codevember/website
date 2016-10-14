@@ -4,9 +4,15 @@ import Vue from 'vue';
 import router from './router';
 import Api from './Api';
 import configDB from '../config/database';
+import Header from 'layouts/header/Header.js';
 
 function onApiInit() {
-  const app = new Vue({router});
+  const app = new Vue({
+    router,
+    components: {
+      'app-header': Header
+    }
+  });
   app.$mount('#app');
 }
 

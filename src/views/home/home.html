@@ -1,9 +1,4 @@
-
-<div class="myHome">
-  <DayList day="This Props works"></DayList>
-  <div class="projectContainer">
-    <p>Current route name from home: {{ $route.name }}    .</p>
-    <p>Current Id from home: {{ $route.params.id }}</p>
-     <router-view class="view" name="projView"></router-view>
-  </div>
+<div class="Home">
+  <DaySelector :currentDay="$route.params.day"></DaySelector>
+  <ProjectList :contribs="contribs"></ProjectList>
 </div>

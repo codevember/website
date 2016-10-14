@@ -1,12 +1,7 @@
-<div class="projectComponent">
-  <p>
-    Project
-  </p>
-  <div class="Project"  v-for="item in contribs">
-    <a :href="item.url">
-      <div class="Project-image" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
-      <div class="Project-title">{{ item.title }}</div>
-      <div class="Project-author">by {{ item.author }}</div>
-    </a>
-  </div>
+<div class="Project">
+  <a :href="url">
+    <div class="Project-image" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
+    <div class="Project-title">{{ title }}</div>
+    <div class="Project-author">by {{ author }}</div>
+  </a>
 </div>
