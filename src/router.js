@@ -10,7 +10,6 @@ import Admin from './views/admin/Admin';
 
 const router = new VueRouter({
   mode: 'history',
-  base: __dirname,
   routes: [
     {
       path: '/',
