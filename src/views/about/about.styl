@@ -1,0 +1,92 @@
+.About
+  padding-top 30px
+  position relative
+
+  h1, h2, h3
+    text-transform uppercase
+
+  a
+    color medium-blue
+    transition color 0.3s
+
+    &:hover
+      color light-blue
+
+  &-header
+    text-align center
+    margin-bottom 50px
+
+    h1
+      text-align center
+      margin-bottom -20px
+
+      img
+        width 640px
+
+    h2
+      font-size 2em
+      letter-spacing 2px
+
+    p
+      font-size 1.3em
+      line-height 1.2
+      text-align left
+      width 60%
+      margin 50px auto 0 auto
+
+  &-content
+    width 60%
+    margin 0 auto
+
+  &-rules
+    margin-top 5vh
+
+    &-line
+      width 50px
+      height 6px
+      background light-blue
+      margin 10px 0 30px 0
+
+    li
+      font-size 1.15em
+      margin 10px 0
+      display flex
+      align-items baseline
+
+    &-number
+      @extend .font-title
+      font-size 1.5em
+      margin-right 10px
+
+    h3
+      font-size 3em
+
++max-screen(tablet-max-width)
+  .About
+    &-header
+      h1 img
+        width 60%
+
+      h2
+        font-size 1.4em
+
++max-screen(mobile-max-width)
+  .About
+    padding-bottom 30px
+
+    &-header p,
+    &-header h1 img,
+    &-content
+      width 80%
+
+    &-header
+      margin-bottom 30px
+
+      h1
+        margin-bottom 0
+
+      h2
+        font-size 1.3em
+
+      p
+        margin-top 30px

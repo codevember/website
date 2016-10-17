@@ -41,6 +41,7 @@
     "express": "^4.14.0",
     "firebase": "^3.4.1",
     "stylus-easing": "^1.0.0",
+    "stylus-font-face": "^1.1.0",
     "stylus-media-queries": "^1.0.0",
     "stylus-reset": "0.0.1",
     "vue": "^2.0.1",

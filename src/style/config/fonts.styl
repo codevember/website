@@ -1,0 +1,18 @@
+@import 'font-face'
+
+font-face('Brandon Bold', 'brandon-bold', '/assets/fonts/brandon/bold')
+font-face('Brandon Regular', 'brandon-regular', '/assets/fonts/brandon/regular')
+
+.font-default
+  @extend .smooth-font
+  font-family "Brandon Regular"
+
+.font-title
+  @extend .smooth-font
+  font-family "Brandon Bold"
+
+body
+  @extend .font-default
+
+h1, h2, h3, h4
+  @extend .font-title

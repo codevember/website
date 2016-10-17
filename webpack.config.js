@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer-stylus');
+const fontFace = require('stylus-font-face');
 
 module.exports = {
   entry: './src/index.js',
@@ -35,7 +36,10 @@ module.exports = {
     ]
   },
   stylus: {
-    use: [autoprefixer()]
+    use: [
+      autoprefixer(),
+      fontFace({limit: 8000})
+    ]
   },
   plugins: [
     new ExtractTextPlugin('main.css')
