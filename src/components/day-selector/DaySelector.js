@@ -5,7 +5,17 @@ export default {
   data () {
     return {};
   },
-  created() {},
-  mounted() {},
-  methods: {}
+  created() {
+
+
+  },
+  mounted() {
+    var ulDay = document.getElementById('DaySelectorUl');
+     //console.log(ulDay);
+
+  },
+  methods: {
+
+
+  }
 };

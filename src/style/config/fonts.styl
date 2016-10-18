@@ -2,17 +2,26 @@
 
 font-face('Brandon Bold', 'brandon-bold', '/assets/fonts/brandon/bold')
 font-face('Brandon Regular', 'brandon-regular', '/assets/fonts/brandon/regular')
+font-face('Gotham Bold', 'gotham-bold', '/assets/fonts/gotham/bold')
+font-face('Gotham Book', 'gotham-book', '/assets/fonts/gotham/book')
+font-face('Gotham Medium', 'gotham-medium', '/assets/fonts/gotham/medium')
 
 .font-default
   @extend .smooth-font
-  font-family "Brandon Regular"
+  font-family "Gotham Book"
 
 .font-title
   @extend .smooth-font
-  font-family "Brandon Bold"
+  font-family "Gotham Bold"
 
+.font-medium
+  @extend .smooth-font
+  font-family "Gotham Medium"
 body
   @extend .font-default
 
 h1, h2, h3, h4
   @extend .font-title
+
+.Project-title
+  @extend .font-medium

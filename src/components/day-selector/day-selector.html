@@ -1,7 +1,7 @@
 <div class="DaySelector">
-  <ul>
+  <ul id="DaySelectorUl">
     <li v-for="n in 30" :class="{ 'isActive': (n == currentDay), 'hidden': (n > currentDay) }">
-      <router-link :to="{ name: 'home', params: { day: n } }">Day # {{ n }}</router-link>
+      <router-link :to="{ name: 'home', params: { day: n } }">#Day {{ n }}</router-link>
     </li>
   </ul>
 </div>
