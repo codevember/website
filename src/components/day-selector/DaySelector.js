@@ -10,8 +10,12 @@ export default {
 
   },
   mounted() {
-    var ulDay = document.getElementById('DaySelectorUl');
-     //console.log(ulDay);
+    var ulDay = this.$refs.DaySelectorUl;
+    console.log(this.$refs);
+
+
+  },
+  computed(){
 
   },
   methods: {
