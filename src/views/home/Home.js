@@ -11,15 +11,27 @@ export default {
   },
   data () {
     return {
-      contribs: []
+      contribs: [],
+      hasContribs: false,
+      isLoading: false
     };
   },
   created() {
-    console.log('Loading data for day #', this.$route.params.day);
-    Api.getAllContributions().then((contribs) => { // TODO: Get contribs for given day
-      this.contribs = contribs;
-    });
+    this.fetchData();
   },
   mounted() {},
-  methods: {}
+  watch: {
+    $route: 'fetchData'
+  },
+  methods: {
+    fetchData() {
+      this.isLoading = true;
+      console.log('Loading data for day #' + this.$route.params.day);
+      Api.getContributionsOfDay(~~this.$route.params.day).then((contribs) => {
+        this.contribs = contribs;
+        this.hasContribs = (this.contribs.length > 0);
+        this.isLoading = false;
+      });
+    }
+  }
 };

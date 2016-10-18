@@ -54,7 +54,7 @@ class Api {
 
   getContributionsOfDay(day) {
     return new Promise((resolve, reject) => {
-      this.contribs.orderByChild('date').equalTo(day).once('value').then((snapshot) => {
+      this.contribs.orderByChild('day').equalTo(day).once('value').then((snapshot) => {
         let contribs = [];
         snapshot.forEach((data) => {
           contribs.push(data.val());
