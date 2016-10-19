@@ -1,4 +1,4 @@
-<div class="DaySelector" @click="setFontSize">
+<div class="DaySelector">
   <ul ref="DaySelectorUl">
     <li v-for="n in 30" :class="{ 'isActive': (n == currentDay), 'hidden': (n > currentDay) } " ref="liDay" >
       <router-link :to="{ name: 'home', params: { day: n } }">#Day {{ n }}</router-link>

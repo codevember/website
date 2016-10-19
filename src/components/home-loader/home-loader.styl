@@ -1,0 +1,28 @@
+colors_Load = ( #005872 #4d9aa9 #0e7286 #002029 )
+.Home-loading
+  position absolute
+  top 40%
+  left 50%
+  width 120px
+  height 30px
+  transform translate(-50%,-50%)
+
+.Point-loader
+  width 20px
+  height 20px
+  background grey
+  border-radius 10px
+  margin 5px
+  float left
+  for i in (1..4)
+    &:nth-child({i})
+      animation Bounce ease-in-out infinite alternate both .4s
+      animation-delay i*0.2s
+      background colors_Load[i - 1]
+
+@keyframes Bounce
+  from
+   transform translateY(0px)
+
+  to
+    transform translateY(10px)

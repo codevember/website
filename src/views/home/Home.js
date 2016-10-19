@@ -1,5 +1,7 @@
 import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
+import HomeMenu from 'components/home-menu/HomeMenu.js';
+import HomeLoader from 'components/home-loader/HomeLoader.js';
 import TweenLite from  "gsap";
 import Api from 'Api';
 
@@ -8,7 +10,9 @@ export default {
   template: require('./home.html'),
   components: {
     DaySelector: DaySelector,
-    ProjectList: ProjectList
+    ProjectList: ProjectList,
+    HomeMenu : HomeMenu,
+    HomeLoader: HomeLoader
   },
   data () {
     return {
@@ -33,10 +37,7 @@ export default {
       Api.getContributionsOfDay(~~this.$route.params.day).then((contribs) => {
         this.contribs = contribs;
         this.hasContribs = (this.contribs.length > 0);
-        TweenLite.to(this.$refs.loader , 0.5, {
-         opacity: 0,
-         onComplete: () => { this.isLoading = false; }
-        })
+        this.isLoading = false;
       })
     }
   }

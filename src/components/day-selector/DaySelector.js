@@ -11,6 +11,10 @@ export default {
     this.setFontSize();
     this.placeLi();
   },
+  watch: {
+    $route: ['setFontSize']
+    
+  },
   computed(){
 
   },
