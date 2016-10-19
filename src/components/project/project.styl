@@ -1,28 +1,36 @@
+offsetAnim = "30px"
+colors_Load = ( #005872 #4d9aa9 #0e7286 #002029 )
+random(min,max)
+  return floor(math(0, 'random')*(max - min + 1) + min)
 .Project
   position relative
   margin 15px
   width 150px
   height 150px
   border 2px solid #BBB
-  &:after
-    content ''
-    display block
-    position absolute
-    bottom -25px
-    left 18px
-    background #a9a9a9
-    width 7px
-    height 70px
 
-
-.Project-author
+.Project-decoration
+  display block
+  opacity 0
   position absolute
-  bottom -22px
+  bottom -25px
+  left 18px - offsetAnim/2
+  background colors_Load[ random(0,4) ]
+  width 7px
+  height 70px
+
+.Project-image
+  opacity 0
+.Project-author
+  opacity 0
+  position absolute
+  bottom -22px - offsetAnim
   left 30px
 
 .Project-title
+  opacity 0
   position absolute
   color #002029
   left 30px
-  bottom 0px
+  bottom 0px  - offsetAnim
   font-size 1.5em

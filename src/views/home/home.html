@@ -1,11 +1,17 @@
 
 <div class="Home">
+  <div class="Home-logo">
+      <img src="/assets/images/logo.png" alt="" />
+  </div>
   <DaySelector :currentDay="$route.params.day"></DaySelector>
   <ProjectList :contribs="contribs" v-if="!isLoading && hasContribs"></ProjectList>
   <div class="Home-error" v-if="!isLoading && !hasContribs">
     There are no contributions for this day yet.
   </div>
-  <div class="Home-loading" v-if="isLoading">
-    Loading...
+  <div class="Home-loading" v-if="isLoading" ref="loader">
+    <div class="Point-loader"></div>
+    <div class="Point-loader"></div>
+    <div class="Point-loader"></div>
+    <div class="Point-loader"></div>
   </div>
 </div>

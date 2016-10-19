@@ -1,5 +1,6 @@
 import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
+import TweenLite from  "gsap";
 import Api from 'Api';
 
 export default {
@@ -19,7 +20,9 @@ export default {
   created() {
     this.fetchData();
   },
-  mounted() {},
+  mounted() {
+
+  },
   watch: {
     $route: 'fetchData'
   },
@@ -30,8 +33,11 @@ export default {
       Api.getContributionsOfDay(~~this.$route.params.day).then((contribs) => {
         this.contribs = contribs;
         this.hasContribs = (this.contribs.length > 0);
-        this.isLoading = false;
-      });
+        TweenLite.to(this.$refs.loader , 0.5, {
+         opacity: 0,
+         onComplete: () => { this.isLoading = false; }
+        })
+      })
     }
   }
 };

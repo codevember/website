@@ -1,7 +1,8 @@
-<div class="Project">
+<div class="Project" ref="pContainer">
   <a :href="url">
-    <div class="Project-image" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
-    <div class="Project-title">Testo {{ title }}</div>
-    <div class="Project-author">@{{ author }}</div>
+    <div class="Project-decoration" ref="pDeco"></div>
+    <div class="Project-image"  ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
+    <div class="Project-title" ref="pTitle" >Testo {{ title }}</div>
+    <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
   </a>
 </div>
