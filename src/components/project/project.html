@@ -1,8 +1,8 @@
 <div class="Project" ref="pContainer">
-  <a :href="url">
+    <router-link :to=" { name: 'projectview', params: { day: $route.params.day, projectTitle :  'test' } } ">
     <div class="Project-decoration" ref="pDeco"></div>
     <div class="Project-image"  ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
     <div class="Project-title" ref="pTitle" >Testo {{ title }}</div>
     <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
-  </a>
+  </router-link>
 </div>

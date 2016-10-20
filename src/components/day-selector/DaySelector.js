@@ -13,7 +13,7 @@ export default {
   },
   watch: {
     $route: ['setFontSize']
-    
+
   },
   computed(){
 
@@ -40,8 +40,6 @@ export default {
       var dist = ulDayPos.height + liDayPos.top - offset -(liDayPos.height/2) ;
       TweenLite.to(ulDay, 0.3, {opacity: 1})
       TweenLite.to(ulDay, 0.8, { scrollTop: dist})
-      //ulDay.scrollTop = dist;
-
     }
 
 

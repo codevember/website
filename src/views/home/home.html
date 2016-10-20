@@ -6,7 +6,7 @@
   <HomeMenu></HomeMenu>
   <DaySelector :currentDay="$route.params.day"></DaySelector>
   <ProjectList :contribs="contribs" v-if="!isLoading && hasContribs"></ProjectList>
-
+  <ProjectView v-if="!isLoading && hasContribs && isProjectView"></ProjectView>
   <div class="Home-error" v-if="!isLoading && !hasContribs">
     There are no contributions for this day yet.
   </div>

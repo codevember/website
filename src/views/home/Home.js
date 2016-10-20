@@ -1,5 +1,6 @@
 import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
+import ProjectView from 'components/project-view/ProjectView.js';
 import HomeMenu from 'components/home-menu/HomeMenu.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
 import TweenLite from  "gsap";
@@ -11,6 +12,7 @@ export default {
   components: {
     DaySelector: DaySelector,
     ProjectList: ProjectList,
+    ProjectView: ProjectView,
     HomeMenu : HomeMenu,
     HomeLoader: HomeLoader
   },
@@ -18,7 +20,8 @@ export default {
     return {
       contribs: [],
       hasContribs: false,
-      isLoading: false
+      isLoading: false,
+      isProjectView : false
     };
   },
   created() {
@@ -33,11 +36,12 @@ export default {
   methods: {
     fetchData() {
       this.isLoading = true;
+      console.log(this.$route);
       console.log('Loading data for day #' + this.$route.params.day);
       Api.getContributionsOfDay(~~this.$route.params.day).then((contribs) => {
         this.contribs = contribs;
         this.hasContribs = (this.contribs.length > 0);
-        this.isLoading = false;
+        setTimeout(()=> { this.isLoading = false;}, 300)
       })
     }
   }
