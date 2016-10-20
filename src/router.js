@@ -24,11 +24,6 @@ const router = new VueRouter({
         return '/day/' + today.getDate();
       }
     },
-    // {
-    //   name:'projectview',
-    //   path:'/day/:day/project/:projectTitle',
-    //   components:Home
-    // },
     {
       name: 'home',
       path: '/day/:day',
