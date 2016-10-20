@@ -1,4 +1,5 @@
 require('es6-promise').polyfill();
+import 'gsap';
 import './style/index.styl';
 import Vue from 'vue';
 import router from './router';

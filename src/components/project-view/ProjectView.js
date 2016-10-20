@@ -1,4 +1,3 @@
-import TweenLite from  "gsap";
 export default {
   name: 'ProjectView',
   template: require('./project-view.html'),
@@ -15,7 +14,7 @@ export default {
   methods: {
   },
   beforeDestroy(){
-    /*TweenLite.to(this.$refs.loader , 0.5, {
+    /*TweenMax.to(this.$refs.loader , 0.5, {
      opacity: 0,
      onComplete: () => {  }
    })*/

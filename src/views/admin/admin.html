@@ -1,3 +1,23 @@
 <div class="Admin">
-  <h1>Admin</h1>
+  <div class="Admin-content">
+    <h1>New contribution</h1>
+    <div v-if="!saved">
+      <input type="text" name="author" v-model="author" placeholder="Author">
+      <input type="text" name="title" v-model="title" placeholder="Title">
+      <input type="text" name="url" v-model="url" placeholder="URL">
+      <input type="text" name="image" v-model="image" placeholder="Image">
+      <label for="day">Day</label>
+      <select name="day" v-model="day">
+        <option v-for="n in 30">{{ n }}</option>
+      </select>
+      <button type="button" v-on:click="onSubmit">Save</button>
+      <p>
+        {{ error }}
+      </p>
+    </div>
+    <div v-else>
+      Contribution saved!<br>
+      <button type="button" v-on:click="onNewClick">New</button>
+    </div>
+  </div>
 </div>

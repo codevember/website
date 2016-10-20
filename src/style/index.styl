@@ -30,7 +30,36 @@ body,
 a
   text-decoration none
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select
+  display block
+  border 0
+  border solid 1px #ccc
+  border-radius 3px
+  padding 10px
+  font-size 1.3em
+  width 300px
+  outline none
 
+  &:focus
+    border-color light-blue
+
+select
+  font-size 1em
+
+button
+  @extend .font-medium
+  border 0
+  background medium-blue
+  padding 15px 30px
+  margin 0 0 20px
+  font-size 1.2em
+  text-transform uppercase
+  cursor pointer
+  color white
+  border-radius 5px
 
 /*======================================================================
     COMPONENTS

@@ -36,8 +36,16 @@ class Api {
   }
 
   saveContribution(value) {
-    let newContrib = this.contribs.push();
-    newContrib.set(value);
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        reject();
+        return;
+      }
+
+      let newContrib = this.contribs.push();
+      newContrib.set(value);
+      resolve();
+    });
   }
 
   getAllContributions() {

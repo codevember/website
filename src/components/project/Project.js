@@ -1,4 +1,3 @@
-import TweenLite from  "gsap";
 export default {
   name: 'Project',
   template: require('./project.html'),
@@ -10,10 +9,12 @@ export default {
     this.projectAnim();
   },
   methods: {
-    projectAnim(){
-      TweenLite.to(this.$refs.pAuthor , 0.5, { bottom: "-22px" , opacity:1,delay: .3})
-      TweenLite.to(this.$refs.pTitle , 0.6, { bottom: "0px",opacity:1,delay: .1})
-      TweenLite.to(this.$refs.pDeco , 0.4, { left: "18px",opacity:0.8})
+    projectAnim() {
+      let tl = new TimelineMax();
+      tl.to(this.$refs.pDeco, 0.4, {x: 18, alpha: 0.8}, 0);
+      tl.to(this.$refs.pTitle, 0.6, {y: -33, alpha: 1}, 0.1);
+      tl.to(this.$refs.pAuthor, 0.5, {y: -30, alpha: 1}, 0.3);
+
       console.log(this.$refs.pContainer);
     }
   }

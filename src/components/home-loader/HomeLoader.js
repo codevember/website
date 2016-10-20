@@ -1,8 +1,7 @@
-import TweenLite from  "gsap";
 export default {
   name: 'HomeLoader',
   template: require('./home-loader.html'),
-  props:'',
+  props: [],
   data () {
     return {};
   },
@@ -10,12 +9,12 @@ export default {
   },
   mounted() {
   },
-  computed(){
+  computed() {
   },
   methods: {
   },
-  beforeDestroy(){
-    /*TweenLite.to(this.$refs.loader , 0.5, {
+  beforeDestroy() {
+    /*TweenMax.to(this.$refs.loader , 0.5, {
      opacity: 0,
      onComplete: () => {  }
    })*/

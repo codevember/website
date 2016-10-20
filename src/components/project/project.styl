@@ -2,6 +2,7 @@ offsetAnim = "30px"
 colors_Load = ( #005872 #4d9aa9 #0e7286 #002029 )
 random(min,max)
   return floor(math(0, 'random')*(max - min + 1) + min)
+
 .Project
   position relative
   margin 15px
@@ -14,13 +15,14 @@ random(min,max)
   opacity 0
   position absolute
   bottom -25px
-  left 18px - offsetAnim/2
+  left 0.5 * (18px - offsetAnim)
   background colors_Load[ random(0,4) ]
   width 7px
   height 70px
 
 .Project-image
   opacity 0
+
 .Project-author
   opacity 0
   position absolute
