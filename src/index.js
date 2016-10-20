@@ -3,7 +3,7 @@ import 'gsap';
 import './style/index.styl';
 import Vue from 'vue';
 import router from './router';
-import Api from './Api';
+import Api from 'lib/Api';
 import configDB from '../config/database';
 import Header from 'layouts/header/Header.js';
 

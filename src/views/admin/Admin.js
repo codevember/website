@@ -1,4 +1,4 @@
-import Api from 'Api';
+import Api from 'lib/Api';
 
 export default {
   name: 'Admin',
@@ -53,6 +53,11 @@ export default {
     },
 
     onNewClick() {
+      this.author = '';
+      this.title = '';
+      this.url = '';
+      this.image = '';
+      this.day = null;
       this.saved = false;
     }
   }

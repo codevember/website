@@ -1,8 +1,6 @@
-<div class="Project" ref="pContainer">
-    <router-link :to=" { name: 'projectview', params: { day: $route.params.day, projectTitle :  'test' } } ">
-    <div class="Project-decoration" ref="pDeco"></div>
-    <div class="Project-image"  ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
-    <div class="Project-title" ref="pTitle" >Testo {{ title }}</div>
-    <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
-  </router-link>
+<div class="Project" ref="pContainer" @click="onClick">
+  <div class="Project-image" ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
+  <div class="Project-decoration" ref="pDeco"></div>
+  <div class="Project-title" ref="pTitle" >{{ title }}</div>
+  <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
 </div>

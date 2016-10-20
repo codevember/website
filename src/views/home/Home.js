@@ -3,8 +3,8 @@ import ProjectList from 'components/project-list/ProjectList.js';
 import ProjectView from 'components/project-view/ProjectView.js';
 import HomeMenu from 'components/home-menu/HomeMenu.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
-import TweenLite from  "gsap";
-import Api from 'Api';
+import Api from 'lib/Api';
+import Mediator from 'lib/Mediator';
 
 export default {
   name: 'Home',
@@ -13,7 +13,7 @@ export default {
     DaySelector: DaySelector,
     ProjectList: ProjectList,
     ProjectView: ProjectView,
-    HomeMenu : HomeMenu,
+    HomeMenu: HomeMenu,
     HomeLoader: HomeLoader
   },
   data () {
@@ -21,11 +21,13 @@ export default {
       contribs: [],
       hasContribs: false,
       isLoading: false,
-      isProjectView : false
+      currentUrl: undefined
     };
   },
   created() {
     this.fetchData();
+    Mediator.on('project:click', this.onProjectClick);
+    Mediator.on('projectview:hide', this.onProjectViewHide);
   },
   mounted() {
 
@@ -36,13 +38,21 @@ export default {
   methods: {
     fetchData() {
       this.isLoading = true;
-      console.log(this.$route);
-      console.log('Loading data for day #' + this.$route.params.day);
       Api.getContributionsOfDay(~~this.$route.params.day).then((contribs) => {
         this.contribs = contribs;
         this.hasContribs = (this.contribs.length > 0);
-        setTimeout(()=> { this.isLoading = false;}, 300)
-      })
+        setTimeout(() => { this.isLoading = false; }, 300);
+      });
+    },
+    onProjectClick(url) {
+      this.currentUrl = url;
+      this.$refs.iframe.show();
+    },
+    onProjectViewHide() {
+      this.currentUrl = null;
     }
+  },
+  beforeDestroy() {
+    Mediator.off('project:click', this.onProjectClick);
   }
 };

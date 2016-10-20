@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-import Api from 'Api';
+import Api from 'lib/Api';
 
 import Home from './views/home/Home';
 import About from './views/about/About';
@@ -24,18 +24,18 @@ const router = new VueRouter({
         return '/day/' + today.getDate();
       }
     },
-    {
-      name:'projectview',
-      path:'/day/:day/project/:projectTitle',
-      components:Home
-    },
+    // {
+    //   name:'projectview',
+    //   path:'/day/:day/project/:projectTitle',
+    //   components:Home
+    // },
     {
       name: 'home',
       path: '/day/:day',
       component: Home
     },
     {
-      name:'about',
+      name: 'about',
       path: '/about',
       component: About
     },

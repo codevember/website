@@ -1,5 +1,5 @@
 import * as EmailValidator from 'email-validator';
-import Api from 'Api';
+import Api from 'lib/Api';
 
 export default {
   name: 'Login',

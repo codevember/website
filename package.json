@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "brindille-stylus-extends": "0.0.2",
+    "component-emitter": "^1.2.1",
     "email-validator": "^1.0.7",
     "es6-promise": "^4.0.5",
     "express": "^4.14.0",

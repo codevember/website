@@ -1,12 +1,12 @@
 
 <div class="Home">
   <div class="Home-logo">
-      <img src="/assets/images/logo.png" alt="" />
+    <img src="/assets/images/logo.png" alt="Codevember" />
   </div>
   <HomeMenu></HomeMenu>
   <DaySelector :currentDay="$route.params.day"></DaySelector>
   <ProjectList :contribs="contribs" v-if="!isLoading && hasContribs"></ProjectList>
-  <ProjectView v-if="!isLoading && hasContribs && isProjectView"></ProjectView>
+  <ProjectView :url="currentUrl" ref="iframe"></ProjectView>
   <div class="Home-error" v-if="!isLoading && !hasContribs">
     There are no contributions for this day yet.
   </div>

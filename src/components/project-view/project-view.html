@@ -1,6 +1,7 @@
-<div class="Project-view">
-  <iframe src="{url}" width="" height=""></iframe>
-    <p>
-        My project
-    </p>
+<div class="ProjectView" :class="{ isVisible: isVisible }">
+  <div class="ProjectView-close" @click="hide">
+    <div class="ProjectView-close-line ProjectView-close-line--first"></div>
+    <div class="ProjectView-close-line ProjectView-close-line--second"></div>
+  </div>
+  <iframe :src="url" frameborder="0"></iframe>
 </div>
