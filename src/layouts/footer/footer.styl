@@ -1,0 +1,39 @@
+.Footer
+  position fixed
+  left 0
+  bottom 15px
+  width 100%
+  display flex
+  flex-direction row
+
+  &-link
+    @extend .font-medium
+    width 20vw
+    flex-shrink 0
+    text-align right
+    font-size 1.3em
+    padding-right 20px
+    align-self center
+
+    a
+      transition color 0.3s
+
+      &:hover
+        color light-blue
+
+  &-twitter
+    width 80vw
+    flex-shrink 0
+    text-align center
+
+    svg
+      width 40px
+      height 40px
+
+      path
+        fill dark-blue
+        transition fill 0.3s
+
+      &:hover
+        path
+          fill light-blue

@@ -3,7 +3,6 @@
   <div class="Home-logo">
     <img src="/assets/images/logo.png" alt="Codevember" />
   </div>
-  <HomeMenu></HomeMenu>
   <DaySelector :currentDay="$route.params.day"></DaySelector>
   <ProjectList :contribs="contribs" v-if="!isLoading && hasContribs"></ProjectList>
   <ProjectView :url="currentUrl" ref="iframe"></ProjectView>

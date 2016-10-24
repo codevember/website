@@ -5,13 +5,13 @@ import Vue from 'vue';
 import router from './router';
 import Api from 'lib/Api';
 import configDB from '../config/database';
-import Header from 'layouts/header/Header.js';
+import Footer from 'layouts/footer/Footer';
 
 function onApiInit() {
   const app = new Vue({
     router,
     components: {
-      'app-header': Header
+      'app-footer': Footer
     }
   });
   app.$mount('#app');

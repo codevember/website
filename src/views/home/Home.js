@@ -1,7 +1,6 @@
 import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
 import ProjectView from 'components/project-view/ProjectView.js';
-import HomeMenu from 'components/home-menu/HomeMenu.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
 import Api from 'lib/Api';
 import Mediator from 'lib/Mediator';
@@ -13,7 +12,6 @@ export default {
     DaySelector: DaySelector,
     ProjectList: ProjectList,
     ProjectView: ProjectView,
-    HomeMenu: HomeMenu,
     HomeLoader: HomeLoader
   },
   data () {
