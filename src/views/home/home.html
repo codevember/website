@@ -1,15 +1,17 @@
 
 <div class="Home">
-  <div class="Home-logo">
-    <img src="/assets/images/logo.png" alt="Codevember" />
+  <div class="Home-left">
+    <DaySelector :currentDay="$route.params.day"></DaySelector>
   </div>
-  <DaySelector :currentDay="$route.params.day"></DaySelector>
-  <ProjectList :contribs="contribs" v-if="!isLoading && hasContribs"></ProjectList>
-  <ProjectView :url="currentUrl" ref="iframe"></ProjectView>
-  <div class="Home-error" v-if="!isLoading && !hasContribs">
-    There are no contributions for this day yet.
+  <div class="Home-main">
+    <div class="Home-logo">
+      <img src="/assets/images/logo.png" alt="Codevember" />
+    </div>
+    <ProjectList :contribs="contribs" v-if="hasContribs" ref="list"></ProjectList>
+    <ProjectView :url="currentUrl" ref="iframe"></ProjectView>
+    <div class="Home-error" v-if="!isLoading && !hasContribs">
+      There are no contributions for this day yet.
+    </div>
+    <HomeLoader v-if="isLoading" ref="loader"></HomeLoader>
   </div>
-  <transition name="fade">
-    <HomeLoader v-if="isLoading" > </HomeLoader>
-  </transition>
 </div>

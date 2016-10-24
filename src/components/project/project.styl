@@ -1,7 +1,6 @@
-offsetAnim = "30px"
 colors_Load = ( #005872 #4d9aa9 #0e7286 #002029 )
-random(min,max)
-  return floor(math(0, 'random')*(max - min) + min)
+// random(min,max)
+//   return floor(math(0, 'random')*(max - min) + min)
 
 .Project
   position relative
@@ -11,31 +10,48 @@ random(min,max)
   border 2px solid #BBB
   cursor pointer
 
-.Project-decoration
-  display block
-  opacity 0
-  position absolute
-  bottom -25px
-  left 0.5 * (18px - offsetAnim)
-  background colors_Load[ random(0, 4) ]
-  width 7px
-  height 70px
+  &-decoration
+    display block
+    position absolute
+    bottom -25px
+    left 18px
+    background colors_Load[0]
+    width 7px
+    height 70px
+    transform-origin top center
+    transform scaleY(0)
 
-.Project-image
-  opacity 0
-  width 100%
-  height 100%
+  &:nth-child(2n)
+    .Project-decoration
+      background colors_Load[1]
 
-.Project-author
-  opacity 0
-  position absolute
-  bottom -22px - offsetAnim
-  left 30px
+  &:nth-child(2n+1)
+    .Project-decoration
+      background colors_Load[0]
 
-.Project-title
-  opacity 0
-  position absolute
-  color #002029
-  left 30px
-  bottom 0px  - offsetAnim
-  font-size 1.5em
+  &:nth-child(3n)
+    .Project-decoration
+      background colors_Load[2]
+
+  &:nth-child(4n)
+    .Project-decoration
+      background colors_Load[3]
+
+  &-image
+    width 100%
+    height 100%
+
+  &-infos
+    position absolute
+    bottom -23px
+    left 30px
+    overflow-x hidden
+
+  &-title,
+  &-author
+    transform translateX(-100%)
+
+  &-title
+    color #002029
+    font-size 1.5em
+    margin-bottom 7px
