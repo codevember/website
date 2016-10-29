@@ -4,6 +4,7 @@ import ProjectView from 'components/project-view/ProjectView.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
 import Api from 'lib/Api';
 import Mediator from 'lib/Mediator';
+import BrowserDetector from 'lib/BrowserDetect';
 
 export default {
   name: 'Home',
@@ -19,6 +20,8 @@ export default {
       contribs: [],
       hasContribs: false,
       isLoading: false,
+      isMobile: BrowserDetector.isMobile,
+      isTablet: BrowserDetector.isTablet,
       currentUrl: undefined
     };
   },

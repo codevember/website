@@ -37,3 +37,22 @@
       &:hover
         path
           fill light-blue
+
++max-screen(tablet-max-width)
+  .Footer
+    &-twitter
+      width 69vw
+
++max-screen(mobile-max-width)
+  .Footer
+    &-link,
+    &-twitter
+      width 50vw
+
+    &-link
+      text-align left
+      padding-left 20px
+
+    &-twitter
+      text-align right
+      padding-right 20px

@@ -1,6 +1,6 @@
 
 <div class="Home">
-  <div class="Home-left">
+  <div class="Home-left" v-if="!isMobile && !isTablet">
     <DaySelector :currentDay="$route.params.day"></DaySelector>
   </div>
   <div class="Home-main">

@@ -7,8 +7,6 @@ export default {
       name: 'miaou'
     };
   },
-  mounted() {
-    console.log('Hello from about');
-  },
+  mounted() {},
   methods: {}
 };

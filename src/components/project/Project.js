@@ -1,4 +1,5 @@
 import Mediator from 'lib/Mediator';
+import BrowserDetect from 'lib/BrowserDetect';
 
 export default {
   name: 'Project',
@@ -10,6 +11,8 @@ export default {
     },
 
     onMouseEnter() {
+      if (BrowserDetect.isMobile) return;
+
       if (this.tl) this.tl.kill();
 
       this.tl = new TimelineMax();
@@ -19,6 +22,8 @@ export default {
     },
 
     onMouseLeave() {
+      if (BrowserDetect.isMobile) return;
+
       if (this.tl) this.tl.kill();
 
       this.tl = new TimelineMax();

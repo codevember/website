@@ -55,3 +55,28 @@ colors_Load = ( #005872 #4d9aa9 #0e7286 #002029 )
     color #002029
     font-size 1.5em
     margin-bottom 7px
+
++max-screen(mobile-max-width)
+  .Project
+    width 41vw
+    height 41vw
+
+    &-decoration
+      bottom -20px
+      transform scaleY(1)
+
+    &-infos
+      bottom -20px
+
+    &-image
+      opacity 0.2
+
+    &-title,
+    &-author
+      transform translateX(0)
+
+    &-title
+      font-size 1.15em
+
+    &-author
+      font-size 0.9em
