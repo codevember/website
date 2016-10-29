@@ -1,51 +1,32 @@
+import BrowserDetect from 'lib/BrowserDetect';
+
 export default {
   name: 'DaySelector',
   template: require('./day-selector.html'),
   props: ['currentDay'],
   data () {
-    return {};
-  },
-  created() {
-  },
-  mounted() {
-    this.setFontSize();
-    this.placeLi();
+    return {
+      maxDay: 1
+    };
   },
   watch: {
-    $route: ['setFontSize']
-
+    $route: 'scrollToCurrentDay'
   },
-  computed(){
-
+  computed() {},
+  created() {
+    const d = new Date();
+    this.maxDay = Math.min(30, d.getDate());
+  },
+  mounted() {
+    this.scrollToCurrentDay();
   },
   methods: {
-    setFontSize(){
-      for (var i = 0; i < this.$refs.liDay.length; i++) {
-        TweenLite.to(this.$refs.liDay[i], 0.3, { fontSize: "1.1em"})
+    scrollToCurrentDay() {
+      if (BrowserDetect.isChrome) {
+        this.$el.scrollTop = 22.3 * (30 - this.currentDay); // Chrome
+      } else {
+        this.$el.scrollTop = 23 * (30 - this.currentDay);
       }
-      var liDay = this.$refs.liDay[this.$route.params.day - 1];
-      var liDayPrev = this.$refs.liDay[this.$route.params.day - 2];
-      var liDayPast = this.$refs.liDay[this.$route.params.day];
-      TweenLite.to(liDay, 0.4, { fontSize: "2em"})
-      if (liDayPrev) {
-        TweenLite.to(liDayPrev, 0.5, { fontSize: "1.5em"})
-      }
-      if (liDayPast) {
-        TweenLite.to(liDayPast, 0.5, { fontSize: "1.5em"})
-      }
-
-    },
-    placeLi(){
-      var ulDay = this.$refs.DaySelectorUl;
-      var ulDayPos = ulDay.getBoundingClientRect()
-      var liDay = this.$refs.liDay[this.$route.params.day-1];
-      var liDayPos = liDay.getBoundingClientRect();
-      var offset = 85; // position du selecteur
-      var dist = ulDayPos.height + liDayPos.top - offset -(liDayPos.height/2) ;
-      TweenLite.to(ulDay, 0.3, {opacity: 1})
-      TweenLite.to(ulDay, 0.8, { scrollTop: dist})
     }
-
-
   }
 };

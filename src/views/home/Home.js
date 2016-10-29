@@ -49,8 +49,8 @@ export default {
           this.isLoading = false;
         }
       });
-      tl.to(this.$refs.loader.$el, 0.6, {alpha: 0, ease: Expo.easeOut}, 0);
-      if (this.hasContribs) {
+      if (this.$refs.loader) tl.to(this.$refs.loader.$el, 0.6, {alpha: 0, ease: Expo.easeOut}, 0);
+      if (this.hasContribs && this.$refs.list) {
         tl.fromTo(this.$refs.list.$el, 0.6, {scale: 0.9, transformOrigin: '50% 20%'}, {scale: 1, ease: Expo.easeOut}, 0);
       }
     },
