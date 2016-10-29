@@ -1,8 +1,10 @@
-<div class="Project" ref="pContainer" @click="onClick" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-  <div class="Project-image" ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
-  <div class="Project-decoration" ref="pDeco"></div>
-  <div class="Project-infos">
-    <div class="Project-title" ref="pTitle" >{{ title }}</div>
-    <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
-  </div>
+<div class="Project" ref="pContainer" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+  <router-link :to="{ name: 'contrib', params: { slug: slug } }">
+    <div class="Project-image" ref="pImage" :style="{ backgroundImage: 'url('+ image + ')' }"></div>
+    <div class="Project-decoration" ref="pDeco"></div>
+    <div class="Project-infos">
+      <div class="Project-title" ref="pTitle" >{{ title }}</div>
+      <div class="Project-author" ref="pAuthor" >@{{ author }}</div>
+    </div>
+  </router-link>
 </div>

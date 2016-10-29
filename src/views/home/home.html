@@ -8,7 +8,6 @@
       <img src="/assets/images/logo.png" alt="Codevember" />
     </div>
     <ProjectList :contribs="contribs" v-if="hasContribs" ref="list"></ProjectList>
-    <ProjectView :url="currentUrl" ref="iframe"></ProjectView>
     <div class="Home-error" v-if="!isLoading && !hasContribs">
       There are no contributions for this day yet.
     </div>

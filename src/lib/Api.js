@@ -42,6 +42,7 @@ class Api {
         return;
       }
 
+      value.slug = this.generateSlug(value);
       let newContrib = this.contribs.push();
       newContrib.set(value);
       resolve();
@@ -60,6 +61,17 @@ class Api {
     });
   }
 
+  generateSlug(value) {
+    let slug = '';
+    if (value.day < 10) {
+      slug = '0';
+    }
+    slug += `${value.day} ${value.title} ${value.author}`;
+    slug = slug.replace(/\s/g, '-').toLowerCase();
+
+    return slug;
+  }
+
   getContributionsOfDay(day) {
     return new Promise((resolve, reject) => {
       this.contribs.orderByChild('day').equalTo(day).once('value').then((snapshot) => {
@@ -68,6 +80,19 @@ class Api {
           contribs.push(data.val());
         });
         resolve(contribs);
+      });
+    });
+  }
+
+  getContributionBySlug(slug) {
+    return new Promise((resolve, reject) => {
+      this.contribs.orderByChild('slug').equalTo(slug).once('value').then((snapshot) => {
+        let obj;
+        for (let id in snapshot.val()) {
+          obj = snapshot.val()[id];
+        }
+
+        resolve(obj);
       });
     });
   }

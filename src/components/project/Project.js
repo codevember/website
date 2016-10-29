@@ -1,15 +1,10 @@
-import Mediator from 'lib/Mediator';
 import BrowserDetect from 'lib/BrowserDetect';
 
 export default {
   name: 'Project',
   template: require('./project.html'),
-  props: ['url', 'title', 'author', 'image'],
+  props: ['slug', 'title', 'author', 'image'],
   methods: {
-    onClick() {
-      Mediator.emit('project:click', this.url);
-    },
-
     onMouseEnter() {
       if (BrowserDetect.isMobile) return;
 

@@ -1,6 +1,5 @@
 import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
-import ProjectView from 'components/project-view/ProjectView.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
 import Api from 'lib/Api';
 import Mediator from 'lib/Mediator';
@@ -12,7 +11,6 @@ export default {
   components: {
     DaySelector: DaySelector,
     ProjectList: ProjectList,
-    ProjectView: ProjectView,
     HomeLoader: HomeLoader
   },
   data () {
@@ -27,12 +25,8 @@ export default {
   },
   created() {
     this.fetchData();
-    Mediator.on('project:click', this.onProjectClick);
-    Mediator.on('projectview:hide', this.onProjectViewHide);
   },
-  mounted() {
-
-  },
+  mounted() {},
   watch: {
     $route: 'fetchData'
   },
@@ -56,19 +50,6 @@ export default {
       if (this.hasContribs && this.$refs.list) {
         tl.fromTo(this.$refs.list.$el, 0.6, {scale: 0.9, transformOrigin: '50% 20%'}, {scale: 1, ease: Expo.easeOut}, 0);
       }
-    },
-
-    onProjectClick(url) {
-      this.currentUrl = url;
-      this.$refs.iframe.show();
-    },
-
-    onProjectViewHide() {
-      this.currentUrl = null;
     }
-  },
-
-  beforeDestroy() {
-    Mediator.off('project:click', this.onProjectClick);
   }
 };

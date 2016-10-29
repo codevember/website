@@ -1,7 +1,8 @@
 <footer class="Footer">
   <div class="Footer-link">
     <router-link :to="{ name: 'about'}" v-if="$route.name == 'home'">About</router-link>
-    <router-link :to="{ path: '/' }" v-if="$route.name == 'about'">Home</router-link>
+    <a @click="$router.back()" v-if="$route.name == 'about'">Home</a>
+    <a @click="$router.back()" v-if="$route.name == 'contrib'">Back</a>
   </div>
   <div class="Footer-twitter">
     <a href="https://twitter.com/codevember_" target="_blank">
