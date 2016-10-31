@@ -3,7 +3,7 @@ import BrowserDetect from 'lib/BrowserDetect';
 export default {
   name: 'DaySelector',
   template: require('./day-selector.html'),
-  props: ['currentDay'],
+  props: ['day'],
   data () {
     return {
       maxDay: 1
@@ -12,7 +12,6 @@ export default {
   watch: {
     $route: 'scrollToCurrentDay'
   },
-  computed() {},
   created() {
     const d = new Date();
     this.maxDay = Math.min(30, d.getDate());
@@ -23,9 +22,9 @@ export default {
   methods: {
     scrollToCurrentDay() {
       if (BrowserDetect.isChrome) {
-        this.$el.scrollTop = 22.3 * (30 - this.currentDay); // Chrome
+        this.$el.scrollTop = 22.3 * (30 - this.day); // Chrome
       } else {
-        this.$el.scrollTop = 23 * (30 - this.currentDay);
+        this.$el.scrollTop = 23 * (30 - this.day);
       }
     }
   }

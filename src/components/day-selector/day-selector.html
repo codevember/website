@@ -3,13 +3,13 @@
     <li v-for="n in 30" class="spacer">---</li>
     <li v-for="n in 30"
       :class="{
-        'isActive': (n == currentDay),
-        'beforeActive': (n == currentDay - 1),
-        'afterActive': (n == currentDay + 1),
-        'hidden': (n > currentDay),
+        'isActive': (n == day),
+        'beforeActive': (n == day - 1),
+        'afterActive': (n == day + 1),
+        'hidden': (n > day),
         'spacer': (n > maxDay)
       }"
-      :style="{ opacity: n/currentDay + 0.1 }"
+      :style="{ opacity: n/day + 0.1 }"
     >
       <router-link :to="{ name: 'home', params: { day: n } }">#Day {{ n }}</router-link>
     </li>
