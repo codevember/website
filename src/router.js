@@ -18,9 +18,14 @@ const router = new VueRouter({
         let today = new Date();
 
         // COMMENT THIS FOR DEV
-        // if (today.getMonth() !== 10) {
-        //   return '/day/30';
-        // }
+        if (today.getFullYear() < 2017 && today.getMonth() < 10) {
+          return '/about';
+        }
+
+        if (today.getMonth() !== 10) {
+          return '/day/30';
+        }
+        // END COMMENTS
 
         return '/day/' + today.getDate();
       }
@@ -44,7 +49,6 @@ const router = new VueRouter({
       path: '/login',
       component: Login
     },
-
     {
       path: '/admin',
       component: Admin,
@@ -55,6 +59,10 @@ const router = new VueRouter({
           next();
         }
       }
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 });

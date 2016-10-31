@@ -15,6 +15,7 @@ function onApiInit() {
     }
   });
   app.$mount('#app');
+  document.getElementById('mobile-loader').style.display = 'none';
 }
 
 Api.init(configDB.apiKey, configDB.authDomain, configDB.databaseName)
