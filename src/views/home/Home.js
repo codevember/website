@@ -2,16 +2,15 @@ import DaySelector from 'components/day-selector/DaySelector.js';
 import ProjectList from 'components/project-list/ProjectList.js';
 import HomeLoader from 'components/home-loader/HomeLoader.js';
 import Api from 'lib/Api';
-import Mediator from 'lib/Mediator';
 import BrowserDetector from 'lib/BrowserDetect';
 
 export default {
   name: 'Home',
   template: require('./home.html'),
   components: {
-    DaySelector: DaySelector,
-    ProjectList: ProjectList,
-    HomeLoader: HomeLoader
+    'day-selector': DaySelector,
+    'project-list': ProjectList,
+    'home-loader': HomeLoader
   },
   data () {
     return {

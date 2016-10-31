@@ -5,7 +5,7 @@ export default {
   template: require('./project-list.html'),
   props: ['contribs'],
   components: {
-    Project: Project
+    project: Project
   },
   data () {
     return {};

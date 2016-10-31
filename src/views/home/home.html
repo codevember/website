@@ -1,16 +1,16 @@
 
 <div class="Home">
   <div class="Home-left" v-if="!isMobile && !isTablet">
-    <DaySelector :currentDay="$route.params.day"></DaySelector>
+    <day-selector :currentDay="$route.params.day"></day-selector>
   </div>
   <div class="Home-main">
     <div class="Home-logo">
       <img src="/assets/images/logo.png" alt="Codevember" />
     </div>
-    <ProjectList :contribs="contribs" v-if="hasContribs" ref="list"></ProjectList>
+    <project-list :contribs="contribs" v-if="hasContribs" ref="list"></project-list>
     <div class="Home-error" v-if="!isLoading && !hasContribs">
       There are no contributions for this day yet.
     </div>
-    <HomeLoader v-if="isLoading" ref="loader"></HomeLoader>
+    <home-loader v-if="isLoading" ref="loader"></home-loader>
   </div>
 </div>
