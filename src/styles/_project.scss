@@ -1,0 +1,18 @@
+.project-cards{
+  display: inline-block;
+  width: 250px;
+  padding: 20px;
+   overflow: hidden;
+  .project-image{
+    z-index: -1;
+    overflow: hidden;
+    height: 150px;
+    width:150px;
+    border: #383838 solid 5px;
+    img {
+      max-height: 150px;
+      transform: translateX(-20%);
+    }
+    border-radius: 100px;
+  }
+}

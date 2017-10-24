@@ -1,0 +1,56 @@
+@import "font";
+@include font-face(gothamBook,'/assets/fonts/gotham/book/gotham-book', null, null, eot  svg );
+@include font-face(gothamBold,'/assets/fonts/gotham/bold/gotham-bold',null, null, eot  svg );
+@include font-face(gothamMedium,'/assets/fonts/gotham/medium/gotham-medium',null, null, eot otf svg woff woff2);
+
+$textColor: #3C3C3C;
+#app {
+  position: relative;
+  font-family: gothamBook;
+  color: $textColor;
+}
+a{
+  text-decoration: none;
+  color: $textColor;
+}
+h1{
+  font-family: gothamBold;
+  font-size: 3em;
+  opacity: 0.1;
+  margin-top: 1em;
+  margin-left: 20px;
+  margin-bottom: 0.5em;
+  line-height: 0;
+}
+h2, h3,h4{
+  font-family: gothamBold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  display: block;
+  border: 0;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 1.3em;
+  width: 300px;
+  outline: none;
+}
+
+select {
+  font-size: 1em;
+}
+
+button {
+  border: 0;
+  padding: 15px 30px;
+  margin: 0 0 20px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}
