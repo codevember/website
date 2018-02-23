@@ -1,29 +1,27 @@
-@import "font";
-@include font-face(gothamBook,'/assets/fonts/gotham/book/gotham-book', null, null, eot  svg );
-@include font-face(gothamBold,'/assets/fonts/gotham/bold/gotham-bold',null, null, eot  svg );
-@include font-face(gothamMedium,'/assets/fonts/gotham/medium/gotham-medium',null, null, eot otf svg woff woff2);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800');
 
 $textColor: #3C3C3C;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   position: relative;
-  font-family: gothamBook;
+  font-family: 'Montserrat';
   color: $textColor;
 }
 a{
   text-decoration: none;
   color: $textColor;
 }
+
 h1{
-  font-family: gothamBold;
-  font-size: 3em;
-  opacity: 0.1;
-  margin-top: 1em;
-  margin-left: 20px;
-  margin-bottom: 0.5em;
-  line-height: 0;
+  font-weight:800;
 }
 h2, h3,h4{
-  font-family: gothamBold;
+  font-weight:600;
 }
 
 input[type="text"],
@@ -52,5 +50,6 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   color: white;
+  background-color: lightgrey;
   border-radius: 5px;
 }

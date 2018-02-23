@@ -1,17 +1,14 @@
-# system
-*.log
 .DS_Store
-
-# node
-node_modules
-
-# config
-config/database.js
-config/codevember-firebase.json
-config/old_codevember-firebase.json
-config/codeTest.json
-
-# build
-public/build/*.js
-public/build/*.css
-public/build/*.map
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+config/database.*
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

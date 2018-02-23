@@ -1,41 +1,49 @@
 <template>
   <div class="home">
     <div class="calendar">
-      <div  v-for="day in 30"class="calendar-card" @click="routerAnim(day)">
-          <div v-on:mouseover='showPrompt(day)'v-on:mouseleave='hidePrompt(day)' class="calendar-number">
-            <h2>
+      <div  v-for="day in 30" class="calendar-item" @click="routerAnim(day)">
+          <div v-on:mouseover='showPrompt($event,day)'v-on:mouseleave='hidePrompt($event, day)' class="calendar-card">
+            <div class="calendar-card-gradient"></div>
+            <div class="calendar-card-bg"></div>
+            <h2 class="calendar-card-number">
               {{ day < 10 ? 0 + day.toString() : day }}.
             </h2>
           </div>
       </div>
     </div>
-    <div  class="prompt-container prompt" v-for="prompt in prompts" >
-      <h2   >{{prompt}}</h2>
+    <div class="after-calendar">
+      <div class="social">
+        <a href="https://twitter.com/codevember_">
+         <h4>tw</h4>
+        </a>
+
+      </div>
+      <div class="year-selector">
+        <h4 v-for="year in availableYears" @click="updateYear(year)" :class='{"selected-year": yearSelected == year}'>{{ year }}</h4>
+      </div>
     </div>
-    <div class="year-selector">
-      <h4 @click="updateYear(2017)" :class='{"selected-year": yearSelected == 2017}'>2017</h4>
-      <h4 @click="updateYear(2016)" :class='{"selected-year": yearSelected == 2016}'>2016</h4>
+
+    <div class="prompt-container prompt" v-for="prompt in prompts" >
+      <h2 >{{prompt}}</h2>
     </div>
   </div>
 </template>
 
 <script>
-//:class="{fadeIn: false}"
-import { TweenMax } from 'gsap'
+import { Cubic, TimelineMax } from 'gsap'
 import { mapGetters } from 'vuex'
 import prompts from '../lib/prompts.js'
+import {getCurrentYear} from '../lib/utils.js'
+
 export default {
   name: 'home',
   data () {
     return {
-      windowResizeRate: 200,
-      timeoutResize :{},
-      layout:[{
-        columns:0,
-        elements:[]
-      }],
-      prompts,
-      promptsEl:[]
+      prompts: [],
+      promptsEl: [],
+      availableYears: [],
+      calendarLines: [],
+      itemsPerLine: 0
     }
   },
   computed:{
@@ -43,77 +51,96 @@ export default {
       yearSelected: 'getYear'
     })
   },
-  mounted(){
-    this.$nextTick(()=>{
-      this.buildLayout()
-      this.buildPromptsEl()
-      this.addEvent(window, 'resize', () => {
-        clearTimeout(this.timeoutResize)
-        this.timeoutResize = setTimeout(this.buildLayout(), this.windowResizeRate)
-      })
-    })
+  mounted() {
+    let years = []
+    for (let y in prompts) {
+      if (y > getCurrentYear()) continue
+
+      years.push(y)
+    }
+    years.sort((a, b) => a < b)
+
+    this.availableYears = years
+    this.definePrompts()
+    this.onResize()
+
+    window.addEventListener('resize', this.onResize)
   },
   methods:{
-    buildLayout(){
-      this.layout = [{
-        columns:0,
-        elements:[]
-      }]
-      let tmpLayout = this.$el.querySelectorAll('.calendar-card')
-      let columnsId = 0
-      tmpLayout.length > 0 && this.layout[columnsId].elements.push(tmpLayout[0])
-      for (var i = 1; i < tmpLayout.length; i++) {
-        if(tmpLayout[i].getBoundingClientRect().top != tmpLayout[i-1].getBoundingClientRect().top){
-          columnsId++
-          this.layout.push({
-            columns:columnsId,
-            elements:[]
-          })
-        }
-       this.layout[columnsId].elements.push(tmpLayout[i])
-      }
-    },
-    buildPromptsEl(){
-      this.promptsEl = this.$el.querySelectorAll('.prompt')
-    },
     routerAnim(day){
       let formatDay = day < 10 ? 0 + day.toString() : day
       this.$store.dispatch('getContributionsOfDay', {
         year: this.yearSelected,
         day: day
       })
-      this.animOut(()=>{
-        this.$router.push({ name: 'day', params: { day: formatDay }})
+      this.animOut(() => {
+        this.$router.push({ name: 'day', params: { day: formatDay, year: this.yearSelected }})
       })
-      //
     },
-    updateYear(year){
-      this.$store.commit('updateYear', year)
-    },
-    animOut(cb){
-      var loop = 0
-      for (var i = 0; i < this.layout.length; i++) {
-        TweenMax.staggerFromTo(this.layout[i].elements, 0.7, {opacity:1}, {opacity:0}, 0.08, ()=> {
-          loop++
-          if(loop == this.layout.length - 1) cb()
-        });
+
+    onResize () {
+      let calendar = this.$el.querySelector('.calendar')
+      let items = this.$el.querySelectorAll('.calendar-item')
+      let itemsPerLine = Math.floor(calendar.offsetWidth / items[0].offsetWidth)
+
+      if (itemsPerLine === this.itemsPerLine) return
+
+      this.itemsPerLine = itemsPerLine
+
+      let nbLines = Math.ceil(items.length / itemsPerLine)
+
+      this.calendarLines = []
+
+      let curr = 0
+      for (let l = 0; l < nbLines; l++) {
+        this.calendarLines[l] = []
+
+        for (var i = 0; i < itemsPerLine; i++) {
+          this.calendarLines[l].push(items[curr])
+          curr++
+        }
       }
     },
-    showPrompt(day){
-      let eltest = this.promptsEl
+
+    definePrompts () {
+      this.prompts = prompts[this.yearSelected]
+      this.$nextTick(() => {
+        this.promptsEl = this.$el.querySelectorAll('.prompt')
+      })
+    },
+
+    updateYear(year){
+      this.animOut(() => {
+        this.$store.commit('updateYear', year)
+        this.definePrompts()
+        this.animIn()
+      })
+    },
+
+    animIn() {
+      let tl = new TimelineMax()
+      tl.staggerTo(this.calendarLines, 0.6, {y: 0, alpha: 1, ease: Cubic.easeOut}, -0.08, 0.2)
+    },
+
+    animOut(cb) {
+      let tl = new TimelineMax()
+      tl.staggerTo(this.calendarLines, 0.6, {y: -50, alpha: 0, ease: Cubic.easeOut}, 0.08, 0)
+      tl.to(this.promptsEl, 0.4, {alpha: 0, ease: Cubic.easeOut}, 0)
+      if (cb) {
+        tl.add(cb, 0.8)
+      }
+    },
+
+    showPrompt(self, day){
+      if (!this.promptsEl[day - 1]) return
+
       this.promptsEl[day - 1].classList.add('fadeIn')
     },
-    hidePrompt(day){
+
+    hidePrompt(self, day){
+      if (!this.promptsEl[day - 1]) return
+
       this.promptsEl[day - 1].classList.remove('fadeIn')
-    },
-    addEvent (obj, type, fn) {
-      if (obj.addEventListener) {
-        obj.addEventListener(type, fn, false)
-      } else if (obj.attachEvent) {
-        obj.attachEvent('on' + type, () => {
-          return fn.call(obj, window.event)
-        })
-      }
     }
   }
 }

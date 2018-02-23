@@ -15,21 +15,22 @@
         <select name="year" v-model="year">
           <option v-for="y in availableYears">{{ y }}</option>
         </select>
-        <button type="button" v-on:click="onSubmit">Save</button>
+        <button type="button" @click="onSubmit">Save</button>
         <p>
           {{ error }}
         </p>
       </div>
       <div v-else>
         Contribution saved!<br>
-        <button type="button" v-on:click="onNewClick">New</button>
+        <button type="button" @click="onNewClick">New</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Api from '../../lib/Api';
+import Api from 'backend-api/dist/browser.js';
+import * as Codepen from '../../lib/codepen-parser'
 
 const today = new Date()
 
@@ -48,7 +49,20 @@ export default {
       error: ''
     };
   },
+  watch: {
+    url() {
+      if (Codepen.isCodepenUrl(this.url)) {
+        this.getCodepenData()
+      }
+    }
+  },
   methods: {
+    getCodepenData () {
+      let data = Codepen.getPenDataFromUrl(this.url)
+      this.author = data.user
+      this.image = data.image
+    },
+
     onSubmit() {
       if (this.author === '') {
         this.error = 'Please fill author field';
@@ -80,6 +94,7 @@ export default {
         title: this.title,
         url: this.url,
         image: this.image,
+        year: ~~this.year,
         day: ~~this.day
       }).then(() => {
         this.saved = true;
@@ -91,7 +106,8 @@ export default {
       this.title = '';
       this.url = '';
       this.image = '';
-      this.day = null;
+      this.day = today.getDate()
+      this.year = today.getFullYear()
       this.saved = false;
     }
   }

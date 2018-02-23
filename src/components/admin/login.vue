@@ -18,7 +18,7 @@
 
 <script>
 import * as EmailValidator from 'email-validator';
-import Api from '../../lib/Api';
+import Api from 'backend-api/dist/browser.js';
 
 export default {
   name: 'Login',

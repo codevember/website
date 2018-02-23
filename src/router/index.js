@@ -7,7 +7,7 @@ import about from '@/components/about'
 import admin from '@/components/admin/admin'
 import login from '@/components/admin/login'
 
-import Api from '@/lib/Api'
+import Api from 'backend-api/dist/browser.js'
 Vue.use(Router)
 
 export default new Router({
@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       name: 'day',
-      path: '/day/:day',
+      path: '/:year/day/:day',
       component: dayManager
     },
     {
