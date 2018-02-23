@@ -10,7 +10,7 @@
     <div class="project-container">
       <div class="project-cards" v-for="project in projects">
         <a :href="project.url">
-          <div class="project-image" :style="'background-image : url(' + project.image + ')'"></div>
+          <div class="project-image" :style="'background-image: url(' + project.image + '); border-color: '+ colors[Math.floor(Math.random() * colors.length)]"></div>
           <div class="project-title">
             <h2>{{ project.title }}</h2>
             <h4>@{{ project.author }}</h4>
@@ -39,7 +39,8 @@ export default {
   },
   data () {
     return {
-      prompt: ''
+      prompt: '',
+      colors: ['#005872' ,'#4d9aa9' ,'#0e7286' ,'#002029']
     }
   },
   mounted () {
