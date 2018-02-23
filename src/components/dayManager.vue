@@ -12,13 +12,14 @@
         <a :href="project.url">
           <div class="project-image" :style="'background-image : url(' + project.image + ')'"></div>
           <div class="project-title">
-            <h2>{{ project.author }}</h2>
-            <h4>{{ project.title }}</h4>
+            <h2>{{ project.title }}</h2>
+            <h4>@{{ project.author }}</h4>
           </div>
         </a>
       </div>
+
       <div v-if="projects.length == 0 && !this.isLoading" class="no-project">
-         <h2>There is no project for this day 😿</h2>
+        <h2>There is no project for this day 😿</h2>
       </div>
     </div>
   </div>

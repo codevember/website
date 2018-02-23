@@ -1,11 +1,13 @@
 .day-header {
-  margin-top: 24px;
-  margin-left: 20px;
-  width: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 20px;
+  width: 100%;
   line-height: 100%;
   position: fixed;
   z-index: 1000;
   top: 0;
+  background-color: white;
 
   h1 {
     display: inline-block;
@@ -24,45 +26,51 @@
   }
 }
 
-.project {
-  display: inline-block;
-  margin-left: 20px;
-}
-
 .project-container {
   text-align: center;
-  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 120px auto 0 auto;
 }
 
 .project-cards {
-  display: inline-block;
-  text-align: left;
-  width: 250px;
-  padding: 20px;
+  width: 17vw;
+  margin-left: 5px;
+  margin-right: 5px;
   transition: all .3s;
   overflow: hidden;
 
   &:hover {
     .project-image {
-      box-shadow: grey 0px 0px 20px 0px;
+
     }
   }
 
   .project-image {
     z-index: -1;
-    margin-left: 50px;
     box-shadow: grey 0px 0px 0px 0px;
     overflow: hidden;
     height: 150px;
-    width:150px;
-
+    width: 150px;
+    background-color: #4d9aa9;
+    margin: 0 auto;
     transition: all .5s;
     background-position: center;
   }
 
   .project-title {
-    transform: translate(0%, 0px);
     text-align: center;
     text-shadow: rgb(237, 237, 237) 0px 0 30px;
+
+    h2 {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin-top: 0px;
+      opacity: 0.4;
+    }
   }
 }
