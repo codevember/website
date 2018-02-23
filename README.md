@@ -1,6 +1,6 @@
-# codevember-site-v2.0
+# codevember.xyz
 
-> Website of Codevember 2017
+> Website of Codevember
 
 This is a vue.js based project, if you want to know more about codevember and his concept, visit [codevember website](http://codevember.xyz/)
 
