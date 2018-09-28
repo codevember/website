@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name:'header',
+  name:'app-header',
   data () {
     return {
       logo: require('../assets/images/logo.png')

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { Cubic, TimelineMax } from 'gsap'
+import { Power2, TimelineMax } from 'gsap/all'
 import { mapGetters } from 'vuex'
 import prompts from '../lib/prompts.js'
 import {getCurrentYear} from '../lib/utils.js'
@@ -119,13 +119,13 @@ export default {
 
     animIn() {
       let tl = new TimelineMax()
-      tl.staggerTo(this.calendarLines, 0.6, {y: 0, alpha: 1, ease: Cubic.easeOut}, -0.08, 0.2)
+      tl.staggerTo(this.calendarLines, 0.6, {y: 0, alpha: 1, ease: Power2.easeOut}, -0.08, 0.2)
     },
 
     animOut(cb) {
       let tl = new TimelineMax()
-      tl.staggerTo(this.calendarLines, 0.6, {y: -50, alpha: 0, ease: Cubic.easeOut}, 0.08, 0)
-      tl.to(this.promptsEl, 0.4, {alpha: 0, ease: Cubic.easeOut}, 0)
+      tl.staggerTo(this.calendarLines, 0.6, {y: -50, alpha: 0, ease: Power2.easeOut}, 0.08, 0)
+      tl.to(this.promptsEl, 0.4, {alpha: 0, ease: Power2.easeOut}, 0)
       if (cb) {
         tl.add(cb, 0.8)
       }
