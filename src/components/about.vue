@@ -9,7 +9,7 @@
       <p>Open your favourite code editor and let your imagination flows!</p>
 
       <h2>Want to see you work on the website?</h2>
-      <p>For <a  target="_blank" href="https://codepen.io/">CodePen</a> and <a href="https://codier.io/" target="_blank">Codier</a> users, title your creation with #codevember and the number of the day (eg: #codevember - 12 - My awesome work). Then our bot will automatically add your sketch on the website.</p>
+      <p>For <a  target="_blank" href="https://codepen.io/">CodePen</a> and <a href="https://codier.io/" target="_blank">Codier</a> users, title your creation with #codevember and the number of the day (eg: <i>#codevember - 12 - My awesome work</i>). Then our bot will automatically add your sketch on the website.</p>
       <p>Otherwise, you can complete the form below:</p>
       <form class="about-form" @submit="onSubmit">
         <input type="text" name="author" v-model="author" placeholder="Your name">
