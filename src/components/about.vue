@@ -6,20 +6,19 @@
       <p>Codevember is a challenge for developpers to sharpen their creativity and improve their skills. The goal is to build a creative piece of code every day of November. We give you daily hints to inspire you but you can do unrelated sketches.</p>
 
       <h2>How participate?</h2>
-      <p>Open your favourite text editor and let your imagination flows!</p>
+      <p>Open your favourite code editor and let your imagination flows!</p>
 
       <h2>Want to see you work on the website?</h2>
-      <p>For <a href="">CodePen</a> and <a href="">Codier</a> users, title your creation with #codevember and the number of the day (eg: #codevember - 12 - My awesome work). Then our bot will automatically add your sketch on the website.</p>
+      <p>For <a  target="_blank" href="https://codepen.io/">CodePen</a> and <a href="https://codier.io/" target="_blank">Codier</a> users, title your creation with #codevember and the number of the day (eg: #codevember - 12 - My awesome work). Then our bot will automatically add your sketch on the website.</p>
       <p>Otherwise, you can complete the form below:</p>
       <form class="about-form" @submit="onSubmit">
         <input type="text" name="author" v-model="author" placeholder="Your name">
         <input type="text" name="title" v-model="title" placeholder="Title">
         <input type="text" name="url" v-model="url" placeholder="URL">
-        <label for="day">Day</label>
         <select name="day" v-model="day">
-          <option v-for="n in 30">{{ n }}</option>
+          <option v-for="n in 30" :value="n">Day {{ n }}</option>
         </select>
-        <button type="submit">Save</button>
+        <button type="submit">Send</button>
         <p>{{ error }}</p>
       </form>
     </div>
@@ -45,17 +44,17 @@ export default {
       this.error = ''
 
       if (this.author === '') {
-        this.error = 'Please fill author field';
+        this.error = 'Please fill the author field';
         return false;
       }
 
       if (this.title === '') {
-        this.error = 'Please fill title field';
+        this.error = 'Please fill the title field';
         return false;
       }
 
       if (this.url === '') {
-        this.error = 'Please fill url field';
+        this.error = 'Please fill the URL field';
         return false;
       }
 
