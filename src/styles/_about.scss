@@ -1,0 +1,23 @@
+.about {
+  padding-top: 74px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &-back {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+  }
+
+  &-content {
+    width: 70vw;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+}
