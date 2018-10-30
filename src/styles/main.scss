@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800');
 
-$textColor: #3C3C3C;
+$textColor: #FFF;
 
 html, body {
   margin: 0;
   padding: 0;
+
+  background: #1a1a1a;
 }
 
 #app {
   position: relative;
   font-family: 'Montserrat';
   color: $textColor;
+  background: #1a1a1a;
 }
 a{
   text-decoration: none;
