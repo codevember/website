@@ -31,7 +31,7 @@ $colors_Load: #005872 ,#4d9aa9 ,#0e7286 ,#002029 ;
   left: 0;
   width:100vw;
   height:100vh;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
