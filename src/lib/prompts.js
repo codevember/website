@@ -32,5 +32,36 @@ export default {
     'Giraffe',
     'Supernova'
   ],
-  2018: []
+  2018: [
+    'Infinity',
+    'Time',
+    'Carrot',
+    'Sky',
+    'Music',
+    'Web',
+    'Sea',
+    'Cat',
+    'Green',
+    'Apple',
+    'RGB',
+    'Bread',
+    'Black Hole',
+    'coffee',
+    'Fire',
+    'Star',
+    'Crown',
+    'Paper',
+    'eggs',
+    'socks',
+    'Skate',
+    'Keys',
+    'Lolipop',
+    'Printer',
+    'Screwdriver',
+    'Bed',
+    'Man Bun',
+    'Speakers',
+    'Supermarket',
+    'Computer'
+  ]
 }
