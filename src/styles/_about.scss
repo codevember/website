@@ -1,0 +1,54 @@
+.about {
+  padding-top: 74px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: #3C3C3C;
+
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 60px;
+
+    a {
+      text-decoration: underline;
+      color: #4d9aa9;
+    }
+  }
+
+
+  h2 {
+    font-size: 2.1rem;
+  }
+
+  &-back {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 600;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-content {
+    width: 70vw;
+    max-width: 800px;
+  }
+
+  input, select {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  button {
+    background-color: #3C3C3C;
+  }
+
+}

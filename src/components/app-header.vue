@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="header">
     <h1 class="text-logo">#Codevember</h1>
+    <router-link to="about" class="header-about">About</router-link>
   </div>
 </template>
 
