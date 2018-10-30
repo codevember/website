@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  color: #3C3C3C;
+  color: white;
 
   p {
     font-size: 1.3rem;
@@ -48,7 +48,10 @@
   }
 
   button {
-    background-color: #3C3C3C;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid white;
+    border-radius: 3px;
+    margin: 25px 0;
   }
 
 }
