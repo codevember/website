@@ -18,8 +18,8 @@
         <select name="day" v-model="day">
           <option v-for="n in 30" :value="n">Day {{ n }}</option>
         </select>
-        <button type="submit">Send</button>
-        <p>{{ error }}</p>
+        <button type="submit" v-if="sent == false">Send</button>
+        <p>{{ message }}</p>
       </form>
     </div>
   </div>
@@ -32,7 +32,8 @@ export default {
   name: 'about',
   data () {
     return {
-      error: '',
+      sent: false,
+      message: '',
       author: '',
       title: '',
       url: '',
@@ -41,20 +42,20 @@ export default {
   },
   methods: {
     validateForm () {
-      this.error = ''
+      this.message = ''
 
       if (this.author === '') {
-        this.error = 'Please fill the author field';
+        this.message = 'Please fill the author field';
         return false;
       }
 
       if (this.title === '') {
-        this.error = 'Please fill the title field';
+        this.message = 'Please fill the title field';
         return false;
       }
 
       if (this.url === '') {
-        this.error = 'Please fill the URL field';
+        this.message = 'Please fill the URL field';
         return false;
       }
 
@@ -69,16 +70,27 @@ export default {
 
       if (!isValid) return false
 
-      const data = {
-        author: this.author,
-        title: this.title,
-        url: this.url,
-        image: '',
-        year: today.getFullYear(),
-        day: parseInt(this.day, 10)
-      }
+      const data = new FormData()
+      data.append('author', this.author.trim())
+      data.append('title', this.title.trim())
+      data.append('url', this.url.trim())
+      data.append('day', parseInt(this.day, 10))
+      data.append('year', today.getFullYear())
 
-      console.log('SAVE', data)
+      window.fetch(`${window.location.origin}/static/send-mail.php`, {
+        method: 'post',
+        body: data
+      })
+      .then(res => res.json())
+      .then((response) => {
+        if (!response.sent) {
+          this.message = 'An error occured. Please try again later.'
+          return
+        }
+
+        this.message = 'Your submission has been sent!'
+        this.sent = true
+      })
 
       return false;
     }
