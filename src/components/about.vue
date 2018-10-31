@@ -10,11 +10,11 @@
 
       <h2>Want to see you work on the website?</h2>
       <p>For <a  target="_blank" href="https://codepen.io/">CodePen</a> and <a href="https://codier.io/" target="_blank">Codier</a> users, title your creation with #codevember and the number of the day (eg: <i>#codevember - 12 - My awesome work</i>). Then our bot will automatically add your sketch on the website.</p>
-      <p>Otherwise, you can complete the form below:</p>
+      <p>Otherwise, send us your creation with the form below:</p>
       <form class="about-form" @submit="onSubmit">
         <input type="text" name="author" v-model="author" placeholder="Your name">
-        <input type="text" name="title" v-model="title" placeholder="Title">
-        <input type="text" name="url" v-model="url" placeholder="URL">
+        <input type="text" name="title" v-model="title" placeholder="Creation title">
+        <input type="text" name="url" v-model="url" placeholder="Creation URL">
         <select name="day" v-model="day">
           <option v-for="n in 30" :value="n">Day {{ n }}</option>
         </select>
