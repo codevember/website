@@ -3,7 +3,7 @@
     <router-link to="home" class="about-back">back</router-link>
     <div class="about-content">
       <h2>What is Codevember?</h2>
-      <p>Codevember is a challenge for developpers to sharpen their creativity and improve their skills. The goal is to build a creative piece of code every day of November. We give you daily hints to inspire you but you can do unrelated sketches.</p>
+      <p>Codevember is a challenge for developers to sharpen their creativity and improve their skills. The goal is to build a creative piece of code every day of November. We give you daily hints to inspire you but you can do unrelated sketches.</p>
 
       <h2>How participate?</h2>
       <p>Open your favourite code editor and let your imagination flows!</p>
