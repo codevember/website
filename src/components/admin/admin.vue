@@ -42,7 +42,7 @@ export default {
       author: '',
       title: '',
       url: '',
-      image: '',
+      image: '/static/default.jpg',
       day: today.getDate(),
       year: today.getFullYear(),
       saved: false,
