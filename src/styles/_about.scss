@@ -19,7 +19,6 @@
     }
   }
 
-
   h2 {
     font-size: 2.1rem;
   }
@@ -50,6 +49,15 @@
     border: 1px solid white;
     background: none;
     color: #fff;
+    display: block;
+  }
+
+  input[type="file"] {
+    border: none;
+  }
+
+  label {
+    opacity: 0.6;
   }
 
   button {
@@ -58,5 +66,4 @@
     border-radius: 3px;
     margin: 25px 0;
   }
-
 }

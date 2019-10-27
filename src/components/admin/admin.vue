@@ -33,18 +33,20 @@ import Api from 'backend-api/dist/browser.js';
 import * as Codepen from '../../lib/codepen-parser'
 
 const today = new Date()
+const url = new URL(window.location.href);
+console.log(url.searchParams.get('title'));
 
 export default {
   name: 'Admin',
   data() {
     return {
-      availableYears: [2015, 2016, 2017, 2018, 2019, 2020],
-      author: '',
-      title: '',
-      url: '',
-      image: '/static/default.jpg',
-      day: today.getDate(),
-      year: today.getFullYear(),
+      availableYears: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+      author: url.searchParams.get('author') || '',
+      title: url.searchParams.get('title') || '',
+      url: url.searchParams.get('url') || '',
+      image: url.searchParams.get('image') || '/static/default.jpg',
+      day: url.searchParams.get('day') || today.getDate(),
+      year: url.searchParams.get('year') || today.getFullYear(),
       saved: false,
       error: ''
     };
