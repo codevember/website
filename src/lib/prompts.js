@@ -94,6 +94,6 @@ export default {
     'Moon',
     'Repeat',
     'Liquid',
-    'Devided'
+    'Divide'
   ]
 }
